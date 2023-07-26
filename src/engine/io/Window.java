@@ -18,6 +18,8 @@ public class Window {
     private int height;
     private String title;
     private long window;
+    private int frames;
+    private long time;
 
     public Window(int width, int height, String title) {
         this.width = width;
@@ -66,6 +68,12 @@ public class Window {
 
     public void update() {
         glfwPollEvents();
+        frames++;
+        if (System.currentTimeMillis() - time > 1000) {
+            time = System.currentTimeMillis();
+            glfwSetWindowTitle(window, title + " | FPS: " + frames);
+            frames = 0;
+        }
     }
 
     public void swapBuffers() {
