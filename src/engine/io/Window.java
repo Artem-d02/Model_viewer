@@ -20,6 +20,7 @@ public class Window {
     private long window;
     private int frames;
     private long time;
+    private Input input;
 
     public Window(int width, int height, String title) {
         this.width = width;
@@ -33,6 +34,8 @@ public class Window {
         }
 
         window = glfwCreateWindow(width, height, title, 0, 0);
+
+        input = new Input();
 
         if (window == 0) {
             throw new IllegalStateException("Fatal error: window wasn't created");
@@ -59,6 +62,12 @@ public class Window {
 
         // Make the OpenGL context current
         glfwMakeContextCurrent(window);
+
+        // Set callbacks
+        glfwSetKeyCallback(window, input.getKeyboardCallback());
+        glfwSetCursorPosCallback(window, input.getMouseMoveCallback());
+        glfwSetMouseButtonCallback(window, input.getMouseButtonsCallback());
+
         // Enable v-sync
         glfwSwapInterval(1);
 
@@ -84,7 +93,14 @@ public class Window {
         return glfwWindowShouldClose(window);
     }
 
-    protected void finalize() throws Throwable {
+    public void destroy() throws Throwable {
+        input.destroy();
+        glfwWindowShouldClose(window);
         glfwDestroyWindow(window);
+        glfwTerminate();
+    }
+
+    public Input getInput() {
+        return input;
     }
 }

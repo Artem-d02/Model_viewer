@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93895d8f-c2f4-4ec6-8a96-e05fcd4c7399" name="Changes" comment="Added fps counter">
-      <change afterPath="$PROJECT_DIR$/src/engine/io/Input.java" afterDir="false" />
+    <list default="true" id="93895d8f-c2f4-4ec6-8a96-e05fcd4c7399" name="Changes" comment="Added input class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/io/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/io/Input.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/io/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/io/Window.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +68,8 @@
       <workItem from="1690208588683" duration="1927000" />
       <workItem from="1690216757229" duration="6197000" />
       <workItem from="1690376818080" duration="3165000" />
-      <workItem from="1690473875400" duration="1878000" />
+      <workItem from="1690473875400" duration="1907000" />
+      <workItem from="1690903479777" duration="2982000" />
     </task>
     <task id="LOCAL-00001" summary="The first step for creating an app">
       <option name="closed" value="true" />
@@ -92,7 +95,15 @@
       <option name="project" value="LOCAL" />
       <updated>1690384931192</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added input class">
+      <option name="closed" value="true" />
+      <created>1690478056767</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1690478056767</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -102,6 +113,7 @@
     <MESSAGE value="The first step for creating an app" />
     <MESSAGE value="Added glfw window" />
     <MESSAGE value="Added fps counter" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added fps counter" />
+    <MESSAGE value="Added input class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added input class" />
   </component>
 </project>

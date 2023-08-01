@@ -2,6 +2,8 @@ package Main;
 
 import engine.io.Window;
 
+import static org.lwjgl.glfw.GLFW.*;
+
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main implements Runnable {
@@ -21,20 +23,32 @@ public class Main implements Runnable {
         window.create();
     }
     public void run() {
-        init();
-        while(!window.shouldClose()) {
-            update();
-            render();
+        try {
+            init();
+            while(!window.shouldClose()) {
+                update();
+                render();
+                if (window.getInput().isKeyDown(GLFW_KEY_ESCAPE))
+                    break;
+            }
+            destroy();
+        } catch (Throwable e) {
+            throw new RuntimeException(e);
         }
     }
     private void update() {
-        //System.out.println("Update game!");
         window.update();
+        if (window.getInput().isMouseButtonDown(GLFW_MOUSE_BUTTON_LEFT))
+            System.out.println("This mouse position:\n" + "X: " + window.getInput().getMouseX() + ", Y: " + window.getInput().getMouseY());
     }
 
     private void render() {
         //System.out.println("Rendering game!");
         window.swapBuffers();
+    }
+
+    private void destroy() throws Throwable {
+        window.destroy();
     }
 
     public static void main(String[] args) {
