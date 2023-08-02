@@ -20,16 +20,17 @@ public class Main implements Runnable {
     public void init() {
         System.out.println("Initializing game!");
         window = new Window(WIDTH, HEIGHT, "My window");
+        window.setBackgroundColor(1.0f, 0, 0);
         window.create();
     }
     public void run() {
         try {
             init();
-            while(!window.shouldClose()) {
+            while(!window.shouldClose() && !window.getInput().isKeyDown(GLFW_KEY_ESCAPE)) {
                 update();
                 render();
-                if (window.getInput().isKeyDown(GLFW_KEY_ESCAPE))
-                    break;
+                if (window.getInput().isKeyDown(GLFW_KEY_F11))
+                    window.setFullScreen(!window.isFullScreen());
             }
             destroy();
         } catch (Throwable e) {
