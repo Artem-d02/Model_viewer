@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93895d8f-c2f4-4ec6-8a96-e05fcd4c7399" name="Changes" comment=" Finished Input class">
+    <list default="true" id="93895d8f-c2f4-4ec6-8a96-e05fcd4c7399" name="Changes" comment="Added background color, resize callback and full screen mode for Window class, added scroll callback for Input class">
+      <change afterPath="$PROJECT_DIR$/src/engine/graphics/Mesh.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/engine/graphics/Renderer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/engine/graphics/Vertex.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/engine/maths/Vector3f.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engine/io/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/io/Input.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/engine/io/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/io/Window.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,7 +74,9 @@
       <workItem from="1690473875400" duration="1907000" />
       <workItem from="1690903479777" duration="3263000" />
       <workItem from="1690907681109" duration="681000" />
-      <workItem from="1690980160252" duration="5655000" />
+      <workItem from="1690980160252" duration="5956000" />
+      <workItem from="1690993681337" duration="23000" />
+      <workItem from="1691063578760" duration="3820000" />
     </task>
     <task id="LOCAL-00001" summary="The first step for creating an app">
       <option name="closed" value="true" />
@@ -113,7 +118,15 @@
       <option name="project" value="LOCAL" />
       <updated>1690906950951</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added background color, resize callback and full screen mode for Window class, added scroll callback for Input class">
+      <option name="closed" value="true" />
+      <created>1690986073795</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1690986073795</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -125,6 +138,7 @@
     <MESSAGE value="Added fps counter" />
     <MESSAGE value="Added input class" />
     <MESSAGE value=" Finished Input class" />
-    <option name="LAST_COMMIT_MESSAGE" value=" Finished Input class" />
+    <MESSAGE value="Added background color, resize callback and full screen mode for Window class, added scroll callback for Input class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added background color, resize callback and full screen mode for Window class, added scroll callback for Input class" />
   </component>
 </project>

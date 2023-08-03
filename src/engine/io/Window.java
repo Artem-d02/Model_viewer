@@ -1,5 +1,6 @@
 package engine.io;
 
+import engine.maths.Vector3f;
 import org.lwjgl.*;
 import org.lwjgl.glfw.*;
 import org.lwjgl.opengl.*;
@@ -21,9 +22,7 @@ public class Window {
     private int frames;
     private long time;
     private Input input;
-    private float backgroundR;
-    private float backgroundG;
-    private float backgroundB;
+    private Vector3f background = new Vector3f();
     private GLFWWindowSizeCallback sizeCallback;
     private boolean isResized;
     private  boolean isFullScreen;
@@ -107,7 +106,7 @@ public class Window {
             isResized = false;
 
         }
-        GL11.glClearColor(backgroundR, backgroundG, backgroundB, 1.0f);
+        GL11.glClearColor(background.getX(), background.getY(), background.getZ(), 1.0f);
         GL11.glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         glfwPollEvents();
         frames++;
@@ -139,9 +138,7 @@ public class Window {
     }
 
     public void setBackgroundColor(float r, float g, float b) {
-        backgroundR = r;
-        backgroundG = g;
-        backgroundB = b;
+        background.set(r, g, b);
     }
 
     public int getWidth() {
