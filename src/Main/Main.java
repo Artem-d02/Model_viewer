@@ -1,6 +1,7 @@
 package Main;
 
 import engine.graphics.Renderer;
+import engine.graphics.Shader;
 import engine.graphics.Vertex;
 import engine.io.Window;
 import engine.graphics.Mesh;
@@ -16,6 +17,7 @@ public class Main implements Runnable {
     public static int HEIGHT = 780;
     private Window window;
     private Renderer renderer;
+    private Shader shader;
 
     public Mesh mesh = new Mesh(new Vertex[]{
             new Vertex(new Vector3f(-0.5f, 0.5f, 0.0f)),
@@ -34,11 +36,13 @@ public class Main implements Runnable {
 
     public void init() {
         System.out.println("Initializing game!");
+        shader = new Shader("./resources/shaders/mainVertex.glsl", "./resources/shaders/mainFragment.glsl");
         window = new Window(WIDTH, HEIGHT, "My window");
-        renderer = new Renderer();
+        renderer = new Renderer(shader);
         window.setBackgroundColor(1.0f, 0, 0);
         window.create();
         mesh.create();
+        shader.create();
     }
     public void run() {
         try {
@@ -51,6 +55,7 @@ public class Main implements Runnable {
             }
             destroy();
         } catch (Throwable e) {
+            System.err.println(e);
             throw new RuntimeException(e);
         }
     }
@@ -67,6 +72,7 @@ public class Main implements Runnable {
 
     private void destroy() throws Throwable {
         window.destroy();
+        shader.destroy();
     }
 
     public static void main(String[] args) {

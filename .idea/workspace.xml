@@ -4,14 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93895d8f-c2f4-4ec6-8a96-e05fcd4c7399" name="Changes" comment="Added background color, resize callback and full screen mode for Window class, added scroll callback for Input class">
-      <change afterPath="$PROJECT_DIR$/src/engine/graphics/Mesh.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/engine/graphics/Renderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/engine/graphics/Vertex.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/engine/maths/Vector3f.java" afterDir="false" />
+    <list default="true" id="93895d8f-c2f4-4ec6-8a96-e05fcd4c7399" name="Changes" comment="Added Vertex class, Mesh class and Renderer class, appeared an opportunity to render simple meshes">
+      <change afterPath="$PROJECT_DIR$/resources/shaders/mainFragment.glsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/shaders/mainVertex.glsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/engine/graphics/Shader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/engine/utils/FileUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model_viewer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Model_viewer.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engine/io/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/io/Window.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/graphics/Renderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/graphics/Renderer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,18 +40,25 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Java/Projects/Model_viewer/Model_viewer",
+    "jdk.selected.JAVA_MODULE": "openjdk-20",
+    "last_opened_file_path": "D:/Java/Projects/Model_viewer/Model_viewer/resources/shaders",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "onboarding.tips.debug.path": "D:/Java/Projects/Model_viewer/Model_viewer/src/Main.java",
+    "onboarding.tips.debug.path": "D:/Java/Projects/Model_viewer/Model_viewer/resources/src/Main.java",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Java\Projects\Model_viewer\Model_viewer\resources\shaders" />
+      <recent name="D:\Java\Projects\Model_viewer\Model_viewer" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Standard_config" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main.Main" />
@@ -76,7 +84,9 @@
       <workItem from="1690907681109" duration="681000" />
       <workItem from="1690980160252" duration="5956000" />
       <workItem from="1690993681337" duration="23000" />
-      <workItem from="1691063578760" duration="3820000" />
+      <workItem from="1691063578760" duration="4374000" />
+      <workItem from="1691074055017" duration="17000" />
+      <workItem from="1691154320154" duration="9406000" />
     </task>
     <task id="LOCAL-00001" summary="The first step for creating an app">
       <option name="closed" value="true" />
@@ -126,7 +136,15 @@
       <option name="project" value="LOCAL" />
       <updated>1690986073795</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added Vertex class, Mesh class and Renderer class, appeared an opportunity to render simple meshes">
+      <option name="closed" value="true" />
+      <created>1691067793294</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1691067793294</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,6 +157,78 @@
     <MESSAGE value="Added input class" />
     <MESSAGE value=" Finished Input class" />
     <MESSAGE value="Added background color, resize callback and full screen mode for Window class, added scroll callback for Input class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added background color, resize callback and full screen mode for Window class, added scroll callback for Input class" />
+    <MESSAGE value="Added Vertex class, Mesh class and Renderer class, appeared an opportunity to render simple meshes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Vertex class, Mesh class and Renderer class, appeared an opportunity to render simple meshes" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Main/Main.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Main/Main.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Main/Main.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Main/Main.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Main/Main.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Main/Main.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Main/Main.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Main/Main.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/engine/utils/FileUtils.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/engine/utils/FileUtils.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/engine/utils/FileUtils.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/engine/utils/FileUtils.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/engine/utils/FileUtils.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
