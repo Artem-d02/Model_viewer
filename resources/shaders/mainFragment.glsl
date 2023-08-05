@@ -1,8 +1,8 @@
 #version 330 core
 
-in vec3 color;
-varying out vec4 outColor;
+in vec3 passColor;
+out vec4 outColor;
 
 void main() {
-    outColor = vec4(color, 0.5);
+    outColor = vec4(passColor, 0.5);
 }

@@ -15,6 +15,7 @@ public class Mesh {
     private int[] indices;
     private int vao;
     private int pbo;
+    private int cbo;
     private int ibo;
 
     public Mesh(Vertex[] vertices, int[] indices) {
@@ -34,11 +35,18 @@ public class Mesh {
         }
         positionBuffer.put(positionData).flip();
 
-        pbo = GL15.glGenBuffers();
-        GL15.glBindBuffer(GL15.GL_ARRAY_BUFFER, pbo);
-        GL15.glBufferData(GL15.GL_ARRAY_BUFFER, positionBuffer, GL15.GL_STATIC_DRAW);
-        GL20.glVertexAttribPointer(0, Vector3f.size(), GL11.GL_FLOAT, false, 0, 0);
-        GL15.glBindBuffer(GL15.GL_ARRAY_BUFFER, 0);
+        pbo = storeData(positionBuffer, 0, Vector3f.size());
+
+        FloatBuffer colorBuffer = MemoryUtil.memAllocFloat(vertices.length * Vector3f.size());
+        float[] colorData = new float[vertices.length * Vector3f.size()];
+        for (int i = 0; i < vertices.length; i++) {
+            colorData[3 * i] = vertices[i].getColor().getX();
+            colorData[3 * i + 1] = vertices[i].getColor().getY();
+            colorData[3 * i + 2] = vertices[i].getColor().getZ();
+        }
+        colorBuffer.put(colorData).flip();
+
+        cbo = storeData(colorBuffer, 1, Vector3f.size());
 
         IntBuffer indicesBuffer = MemoryUtil.memAllocInt(indices.length);
         indicesBuffer.put(indices).flip();
@@ -47,6 +55,23 @@ public class Mesh {
         GL15.glBindBuffer(GL15.GL_ELEMENT_ARRAY_BUFFER, ibo);
         GL15.glBufferData(GL15.GL_ELEMENT_ARRAY_BUFFER, indicesBuffer, GL15.GL_STATIC_DRAW);
         GL15.glBindBuffer(GL15.GL_ELEMENT_ARRAY_BUFFER, 0);
+    }
+
+    private int storeData(FloatBuffer buffer, int index, int size) {
+        int bufferID = GL15.glGenBuffers();
+        GL15.glBindBuffer(GL15.GL_ARRAY_BUFFER, bufferID);
+        GL15.glBufferData(GL15.GL_ARRAY_BUFFER, buffer, GL15.GL_STATIC_DRAW);
+        GL20.glVertexAttribPointer(index, size, GL11.GL_FLOAT, false, 0, 0);
+        GL15.glBindBuffer(GL15.GL_ARRAY_BUFFER, 0);
+        return bufferID;
+    }
+
+    public void destroy() {
+        GL15.glDeleteBuffers(pbo);
+        GL15.glDeleteBuffers(cbo);
+        GL15.glDeleteBuffers(ibo);
+
+        GL30.glDeleteVertexArrays(vao);
     }
 
     public Vertex[] getVertices() {
@@ -63,6 +88,10 @@ public class Mesh {
 
     public int getPBO() {
         return pbo;
+    }
+
+    public int getCBO() {
+        return cbo;
     }
 
     public int getIBO() {

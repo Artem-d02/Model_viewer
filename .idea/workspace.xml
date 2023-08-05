@@ -4,15 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93895d8f-c2f4-4ec6-8a96-e05fcd4c7399" name="Changes" comment="Added Vertex class, Mesh class and Renderer class, appeared an opportunity to render simple meshes">
-      <change afterPath="$PROJECT_DIR$/resources/shaders/mainFragment.glsl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/shaders/mainVertex.glsl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/engine/graphics/Shader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/engine/utils/FileUtils.java" afterDir="false" />
+    <list default="true" id="93895d8f-c2f4-4ec6-8a96-e05fcd4c7399" name="Changes" comment="Added the supporting of custom shader programs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model_viewer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Model_viewer.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/shaders/mainFragment.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/resources/shaders/mainFragment.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/shaders/mainVertex.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/resources/shaders/mainVertex.glsl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/graphics/Mesh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/graphics/Mesh.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/engine/graphics/Renderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/graphics/Renderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/graphics/Vertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/graphics/Vertex.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,24 +34,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "openjdk-20",
-    "last_opened_file_path": "D:/Java/Projects/Model_viewer/Model_viewer/resources/shaders",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "onboarding.tips.debug.path": "D:/Java/Projects/Model_viewer/Model_viewer/resources/src/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-20&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Java/Projects/Model_viewer/Model_viewer/resources/shaders&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;D:/Java/Projects/Model_viewer/Model_viewer/resources/src/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Java\Projects\Model_viewer\Model_viewer\resources\shaders" />
@@ -86,7 +85,8 @@
       <workItem from="1690993681337" duration="23000" />
       <workItem from="1691063578760" duration="4374000" />
       <workItem from="1691074055017" duration="17000" />
-      <workItem from="1691154320154" duration="9406000" />
+      <workItem from="1691154320154" duration="9436000" />
+      <workItem from="1691242567820" duration="2572000" />
     </task>
     <task id="LOCAL-00001" summary="The first step for creating an app">
       <option name="closed" value="true" />
@@ -144,7 +144,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691067793294</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added the supporting of custom shader programs">
+      <option name="closed" value="true" />
+      <created>1691163814485</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1691163814485</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -158,51 +166,12 @@
     <MESSAGE value=" Finished Input class" />
     <MESSAGE value="Added background color, resize callback and full screen mode for Window class, added scroll callback for Input class" />
     <MESSAGE value="Added Vertex class, Mesh class and Renderer class, appeared an opportunity to render simple meshes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Vertex class, Mesh class and Renderer class, appeared an opportunity to render simple meshes" />
+    <MESSAGE value="Added the supporting of custom shader programs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the supporting of custom shader programs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Main/Main.java</url>
-          <line>42</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Main/Main.java</url>
-          <line>43</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Main/Main.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Main/Main.java</url>
-          <line>48</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Main/Main.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Main/Main.java</url>
-          <line>37</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Main/Main.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Main/Main.java</url>
-          <line>57</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/engine/utils/FileUtils.java</url>
           <line>15</line>
