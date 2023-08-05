@@ -1,10 +1,12 @@
 package engine.graphics;
 
+import engine.maths.Vector2f;
 import engine.maths.Vector3f;
 
 public class Vertex {
     private Vector3f position;
     private Vector3f color = new Vector3f(1.0f, 0.0f, 0.0f);
+    private Vector2f textureCoords;
 
     public Vertex(Vector3f position) {
         this.position = position;
@@ -14,11 +16,21 @@ public class Vertex {
         this.color = color;
     }
 
+    public Vertex(Vector3f position, Vector3f color, Vector2f textureCoords) {
+        this.position = position;
+        this.color = color;
+        this.textureCoords = textureCoords;
+    }
+
     public Vector3f getPosition() {
         return position;
     }
 
     public Vector3f getColor() {
         return color;
+    }
+
+    public Vector2f getTextureCoords() {
+        return textureCoords;
     }
 }

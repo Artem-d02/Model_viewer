@@ -1,0 +1,49 @@
+package engine.graphics;
+
+import engine.utils.FileUtils;
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL13;
+import org.lwjglx.Sys;
+import org.newdawn.slick.opengl.Texture;
+import org.newdawn.slick.opengl.TextureLoader;
+
+import java.io.File;
+import java.io.IOException;
+
+public class Material {
+    private String texturePath;
+    private Texture texture;
+    private float width;
+    private float height;
+    private int textureID;
+    public Material(String path) {
+        texturePath = path;
+    }
+    public void crate() {
+        try {
+            texture = TextureLoader.getTexture(texturePath.split("[.]")[1], Material.class.getResourceAsStream(texturePath), GL11.GL_LINEAR);
+        } catch (IOException e) {
+            System.err.println("Error: can't load texture at " + texturePath);
+            throw new RuntimeException(e);
+        }
+        width = texture.getWidth();
+        height = texture.getHeight();
+        textureID = texture.getTextureID();
+    }
+
+    public void destroy() {
+        GL13.glDeleteTextures(textureID);
+    }
+
+    public float getWidth() {
+        return width;
+    }
+
+    public float getHeight() {
+        return height;
+    }
+
+    public int getTextureID() {
+        return textureID;
+    }
+}

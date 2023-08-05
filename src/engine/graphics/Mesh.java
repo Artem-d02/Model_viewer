@@ -1,5 +1,6 @@
 package engine.graphics;
 
+import engine.maths.Vector2f;
 import engine.maths.Vector3f;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL15;
@@ -13,16 +14,27 @@ import java.nio.IntBuffer;
 public class Mesh {
     private Vertex[] vertices;
     private int[] indices;
+    private Material material;
     private int vao;
     private int pbo;
     private int cbo;
+    private int tbo;
     private int ibo;
 
     public Mesh(Vertex[] vertices, int[] indices) {
         this.vertices = vertices;
         this.indices = indices;
     }
+
+    public Mesh(Vertex[] vertices, int[] indices, Material material) {
+        this.vertices = vertices;
+        this.indices = indices;
+        this.material = material;
+    }
+
     public void create() {
+        material.crate();
+
         vao = GL30.glGenVertexArrays();
         GL30.glBindVertexArray(vao);
 
@@ -48,6 +60,16 @@ public class Mesh {
 
         cbo = storeData(colorBuffer, 1, Vector3f.size());
 
+        FloatBuffer textureBuffer = MemoryUtil.memAllocFloat(vertices.length * Vector2f.size());
+        float[] textureData = new float[vertices.length * Vector2f.size()];
+        for (int i = 0; i < vertices.length; i++) {
+            textureData[2 * i] = vertices[i].getTextureCoords().getX();
+            textureData[2 * i + 1] = vertices[i].getTextureCoords().getY();
+        }
+        textureBuffer.put(textureData).flip();
+
+        tbo = storeData(textureBuffer, 2, Vector2f.size());
+
         IntBuffer indicesBuffer = MemoryUtil.memAllocInt(indices.length);
         indicesBuffer.put(indices).flip();
 
@@ -70,8 +92,11 @@ public class Mesh {
         GL15.glDeleteBuffers(pbo);
         GL15.glDeleteBuffers(cbo);
         GL15.glDeleteBuffers(ibo);
+        GL15.glDeleteBuffers(tbo);
 
         GL30.glDeleteVertexArrays(vao);
+
+        material.destroy();
     }
 
     public Vertex[] getVertices() {
@@ -81,20 +106,20 @@ public class Mesh {
     public int[] getIndices() {
         return indices;
     }
-
     public int getVAO() {
         return vao;
     }
-
     public int getPBO() {
         return pbo;
     }
-
     public int getCBO() {
         return cbo;
     }
-
+    public int getTBO() { return tbo; }
     public int getIBO() {
         return ibo;
+    }
+    public Material getMaterial() {
+        return material;
     }
 }
