@@ -18,10 +18,10 @@ public class Main implements Runnable {
     private Shader shader;
 
     public Mesh mesh = new Mesh(new Vertex[]{
-            new Vertex(new Vector3f(-0.5f, 0.5f, 0.0f), new Vector3f(1.0f, 0.0f, 0.0f), new Vector2f(1.0f, 0.0f)),
-            new Vertex(new Vector3f(0.5f, 0.5f, 0.0f),  new Vector3f(0.0f, 1.0f, 0.0f), new Vector2f(0.0f, 0.0f)),
-            new Vertex(new Vector3f(0.5f, -0.5f, 0.0f), new Vector3f(0.0f, 0.0f, 1.0f), new Vector2f(0.0f, 1.0f)),
-            new Vertex(new Vector3f(-0.5f, -0.5f, 0.0f),new Vector3f(1.0f, 1.0f, 0.0f), new Vector2f(1.0f, 1.0f))
+            new Vertex(new Vector3f(-0.5f, 0.5f, 0.0f), new Vector3f(1.0f, 0.0f, 0.0f), new Vector2f(0.0f, 0.0f)),
+            new Vertex(new Vector3f(0.5f, 0.5f, 0.0f),  new Vector3f(0.0f, 1.0f, 0.0f), new Vector2f(1.0f, 0.0f)),
+            new Vertex(new Vector3f(0.5f, -0.5f, 0.0f), new Vector3f(0.0f, 0.0f, 1.0f), new Vector2f(1.0f, 1.0f)),
+            new Vertex(new Vector3f(-0.5f, -0.5f, 0.0f),new Vector3f(1.0f, 1.0f, 0.0f), new Vector2f(0.0f, 1.0f))
     }, new int[]{
             0, 1, 2,
             0, 3, 2

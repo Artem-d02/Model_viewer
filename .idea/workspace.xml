@@ -4,17 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93895d8f-c2f4-4ec6-8a96-e05fcd4c7399" name="Changes" comment="Added supporting of vertices colors">
-      <change afterPath="$PROJECT_DIR$/src/engine/graphics/Material.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/engine/maths/Vector2f.java" afterDir="false" />
+    <list default="true" id="93895d8f-c2f4-4ec6-8a96-e05fcd4c7399" name="Changes" comment="Added texturing in shaders">
+      <change afterPath="$PROJECT_DIR$/src/engine/maths/Matrix4f.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Model_viewer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Model_viewer.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/shaders/mainFragment.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/resources/shaders/mainFragment.glsl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/shaders/mainVertex.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/resources/shaders/mainVertex.glsl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engine/graphics/Mesh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/graphics/Mesh.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/engine/graphics/Renderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/graphics/Renderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engine/graphics/Vertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/graphics/Vertex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/graphics/Shader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/graphics/Shader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +39,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "openjdk-20",
-    "last_opened_file_path": "D:/Java/External_libs/TextureLoader/slick-util3.jar",
+    "last_opened_file_path": "D:/Java/External_libs/MyMatrix/Matrix.jar",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -89,7 +86,10 @@
       <workItem from="1691074055017" duration="17000" />
       <workItem from="1691154320154" duration="9436000" />
       <workItem from="1691242567820" duration="2906000" />
-      <workItem from="1691248519722" duration="4949000" />
+      <workItem from="1691248519722" duration="7055000" />
+      <workItem from="1691319501524" duration="58000" />
+      <workItem from="1691349596243" duration="191000" />
+      <workItem from="1691349975768" duration="2741000" />
     </task>
     <task id="LOCAL-00001" summary="The first step for creating an app">
       <option name="closed" value="true" />
@@ -163,7 +163,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691245164977</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added texturing in shaders">
+      <option name="closed" value="true" />
+      <created>1691253547093</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1691253547093</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,7 +187,8 @@
     <MESSAGE value="Added Vertex class, Mesh class and Renderer class, appeared an opportunity to render simple meshes" />
     <MESSAGE value="Added the supporting of custom shader programs" />
     <MESSAGE value="Added supporting of vertices colors" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added supporting of vertices colors" />
+    <MESSAGE value="Added texturing in shaders" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added texturing in shaders" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

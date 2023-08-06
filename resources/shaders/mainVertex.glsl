@@ -7,8 +7,10 @@ in vec2 textureCoords;
 out vec3 passColor;
 out vec2 passTextureCoords;
 
+uniform float scale;
+
 void main() {
-    gl_Position = vec4(position, 1.0);
+    gl_Position = vec4(position, 1.0) * vec4(scale, scale, scale, 1.0);
     passColor = color;
     passTextureCoords = textureCoords;
 }
