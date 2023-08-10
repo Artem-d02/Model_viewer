@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93895d8f-c2f4-4ec6-8a96-e05fcd4c7399" name="Changes" comment="Added texturing in shaders">
-      <change afterPath="$PROJECT_DIR$/src/engine/maths/Matrix4f.java" afterDir="false" />
+    <list default="true" id="93895d8f-c2f4-4ec6-8a96-e05fcd4c7399" name="Changes" comment="Added supporting of uniform variables in shader programs + extended the Math package with Matrix class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Model_viewer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Model_viewer.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/shaders/mainVertex.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/resources/shaders/mainVertex.glsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engine/graphics/Renderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/graphics/Renderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engine/graphics/Shader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/graphics/Shader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/maths/Matrix4f.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/maths/Matrix4f.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,10 +32,14 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "openjdk-20",
-    "last_opened_file_path": "D:/Java/External_libs/MyMatrix/Matrix.jar",
+    "last_opened_file_path": "D:/Java/Projects/Model_viewer/Model_viewer",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -89,7 +89,11 @@
       <workItem from="1691248519722" duration="7055000" />
       <workItem from="1691319501524" duration="58000" />
       <workItem from="1691349596243" duration="191000" />
-      <workItem from="1691349975768" duration="2741000" />
+      <workItem from="1691349975768" duration="3529000" />
+      <workItem from="1691590431629" duration="23000" />
+      <workItem from="1691672291853" duration="228000" />
+      <workItem from="1691677946830" duration="119000" />
+      <workItem from="1691678166225" duration="2922000" />
     </task>
     <task id="LOCAL-00001" summary="The first step for creating an app">
       <option name="closed" value="true" />
@@ -171,7 +175,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691253547093</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Added supporting of uniform variables in shader programs + extended the Math package with Matrix class">
+      <option name="closed" value="true" />
+      <created>1691352931771</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1691352931771</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -188,7 +200,8 @@
     <MESSAGE value="Added the supporting of custom shader programs" />
     <MESSAGE value="Added supporting of vertices colors" />
     <MESSAGE value="Added texturing in shaders" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added texturing in shaders" />
+    <MESSAGE value="Added supporting of uniform variables in shader programs + extended the Math package with Matrix class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added supporting of uniform variables in shader programs + extended the Math package with Matrix class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
