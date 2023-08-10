@@ -4,6 +4,7 @@ import engine.graphics.*;
 import engine.io.Window;
 import engine.maths.Vector2f;
 import engine.maths.Vector3f;
+import test.Tester;
 
 import static org.lwjgl.glfw.GLFW.*;
 
@@ -74,8 +75,12 @@ public class Main implements Runnable {
         shader.destroy();
         mesh.destroy();
     }
+    private static void test() {
+        Tester.test();
+    }
 
     public static void main(String[] args) {
+        Main.test();
         new Main().start();
     }
 }

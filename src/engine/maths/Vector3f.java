@@ -44,4 +44,19 @@ public class Vector3f {
     public static int size() {
         return 3;
     }
+    public int length() {
+        return 3;
+    }
+    public Float get(final int index) throws IndexOutOfBoundsException {
+        switch (index) {
+            case 0:
+                return getX();
+            case 1:
+                return getY();
+            case 2:
+                return getZ();
+            default:
+                throw new IndexOutOfBoundsException("Fatal error: out of bounds in Vector2f");
+        }
+    }
 }
