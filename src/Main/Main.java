@@ -4,6 +4,7 @@ import engine.graphics.*;
 import engine.io.Window;
 import engine.maths.Vector2f;
 import engine.maths.Vector3f;
+import engine.objects.Camera;
 import engine.objects.GameObject;
 import test.Tester;
 
@@ -30,7 +31,7 @@ public class Main implements Runnable {
     }, new Material("/textures/texture3.png")
     );
     private GameObject gameObject = new GameObject(mesh, new Vector3f(0, 0, 0), new Vector3f(0, 0, 0), new Vector3f(1, 1, 1));
-
+    private Camera camera = new Camera(new Vector3f(0, 0, 1), new Vector3f(0, 0, 0));
     public void start() {
         game = new Thread(this,"game");
         game.start();
@@ -40,7 +41,7 @@ public class Main implements Runnable {
         System.out.println("Initializing game!");
         shader = new Shader("./resources/shaders/mainVertex.glsl", "./resources/shaders/mainFragment.glsl");
         window = new Window(WIDTH, HEIGHT, "My window");
-        renderer = new Renderer(shader);
+        renderer = new Renderer(window, shader);
         window.setBackgroundColor(1.0f, 0, 0);
         window.create();
         mesh.create();
@@ -69,7 +70,7 @@ public class Main implements Runnable {
     }
 
     private void render() {
-        renderer.renderMesh(gameObject);
+        renderer.renderMesh(gameObject, camera);
         window.swapBuffers();
     }
 

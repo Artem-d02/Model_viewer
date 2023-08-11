@@ -4,16 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93895d8f-c2f4-4ec6-8a96-e05fcd4c7399" name="Changes" comment="Added matrix multiplication method">
-      <change afterPath="$PROJECT_DIR$/src/engine/objects/GameObject.java" afterDir="false" />
+    <list default="true" id="93895d8f-c2f4-4ec6-8a96-e05fcd4c7399" name="Changes" comment="Added transformations: updated Matrix and Vector classes. Refactoring: added GameObject class for storing information about transformations and meshes">
+      <change afterPath="$PROJECT_DIR$/src/engine/objects/Camera.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/shaders/mainVertex.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/resources/shaders/mainVertex.glsl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/engine/graphics/Renderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/graphics/Renderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engine/graphics/Shader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/graphics/Shader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/io/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/io/Window.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/engine/maths/Matrix4f.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/maths/Matrix4f.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engine/maths/Vector2f.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/maths/Vector2f.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engine/maths/Vector3f.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/maths/Vector3f.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/objects/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/objects/GameObject.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,27 +35,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "openjdk-20",
-    "last_opened_file_path": "D:/Java/Projects/Matrix/Matrix",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "onboarding.tips.debug.path": "D:/Java/Projects/Model_viewer/Model_viewer/resources/src/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-20&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Java/Projects/Matrix/Matrix&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;D:/Java/Projects/Model_viewer/Model_viewer/resources/src/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Java\Projects\Model_viewer\Model_viewer\resources\shaders" />
@@ -100,7 +99,8 @@
       <workItem from="1691672291853" duration="228000" />
       <workItem from="1691677946830" duration="119000" />
       <workItem from="1691678166225" duration="2978000" />
-      <workItem from="1691686932722" duration="15126000" />
+      <workItem from="1691686932722" duration="15195000" />
+      <workItem from="1691763776888" duration="3199000" />
     </task>
     <task id="LOCAL-00001" summary="The first step for creating an app">
       <option name="closed" value="true" />
@@ -206,7 +206,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691698783873</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Added transformations: updated Matrix and Vector classes. Refactoring: added GameObject class for storing information about transformations and meshes">
+      <option name="closed" value="true" />
+      <created>1691712604546</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1691712604546</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,7 +234,8 @@
     <MESSAGE value="Added supporting of uniform variables in shader programs + extended the Math package with Matrix class" />
     <MESSAGE value="Refactored Matrix class, added translation and rotation methods" />
     <MESSAGE value="Added matrix multiplication method" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added matrix multiplication method" />
+    <MESSAGE value="Added transformations: updated Matrix and Vector classes. Refactoring: added GameObject class for storing information about transformations and meshes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added transformations: updated Matrix and Vector classes. Refactoring: added GameObject class for storing information about transformations and meshes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -258,7 +267,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/engine/graphics/Renderer.java</url>
-          <line>26</line>
+          <line>29</line>
           <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

@@ -1,5 +1,6 @@
 package engine.io;
 
+import engine.maths.Matrix4f;
 import engine.maths.Vector3f;
 import org.lwjgl.*;
 import org.lwjgl.glfw.*;
@@ -28,11 +29,13 @@ public class Window {
     private  boolean isFullScreen;
     private int[] windowPosX = new int[1];
     private int[] windowPosY = new int[1];
+    private Matrix4f projectionMatrix;
 
     public Window(int width, int height, String title) {
         this.width = width;
         this.height = height;
         this.title = title;
+        this.projectionMatrix = Matrix4f.projection(70.0f, (float)(width) / height, 0.1f, 1000.0f);
     }
 
     public void create() throws IllegalStateException {
@@ -178,5 +181,9 @@ public class Window {
         } else {
             glfwSetWindowMonitor(window, 0, windowPosX[0], windowPosY[0], width, height, 0);
         }
+    }
+
+    public Matrix4f getProjectionMatrix() {
+        return projectionMatrix;
     }
 }

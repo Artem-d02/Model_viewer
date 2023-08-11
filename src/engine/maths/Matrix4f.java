@@ -72,6 +72,35 @@ public class Matrix4f extends SquareMatrix<Float> {
         );
         return rotationMat;
     }
+    public static @NotNull Matrix4f projection(final float fov, final float aspect, final float near, final float far) {
+        Matrix4f projectionMat = new Matrix4f(
+                Arrays.asList(
+                        Arrays.asList(
+                                (float)(1 / (aspect * Math.tan(fov / 2))),  0.0f,                           0.0f,                         0.0f
+                        ),
+                        Arrays.asList(
+                                0.0f,                                       (float)(1 / Math.tan(fov / 2)), 0.0f,                         0.0f
+                        ),
+                        Arrays.asList(
+                                0.0f,                                       0.0f,                           -(far + near)/(far - near),   -(2 * far * near)/(far - near)
+                        ),
+                        Arrays.asList(
+                                0.0f,                                       0.0f,                           -1.0f,                        0.0f
+                        )
+                )
+        );
+        return projectionMat;
+    }
+    public static @NotNull Matrix4f view(final @NotNull Vector3f position, final @NotNull Vector3f rotation) {
+        Matrix4f translationMatrix = Matrix4f.translate(new Vector3f(-position.getX(), -position.getY(), -position.getZ()));
+        Matrix4f rotX = Matrix4f.rotation(rotation.getX(), new Vector3f(1, 0, 0));
+        Matrix4f rotY = Matrix4f.rotation(rotation.getY(), new Vector3f(0, 1, 0));
+        Matrix4f rotZ = Matrix4f.rotation(rotation.getZ(), new Vector3f(0, 0, 1));
+
+        Matrix4f rotationMatrix = Matrix4f.multiply(rotZ, Matrix4f.multiply(rotY, rotX));
+
+        return Matrix4f.multiply(translationMatrix, rotationMatrix);
+    }
     public static @NotNull Matrix4f scale(final @NotNull Vector3f scalar) {
         Matrix4f result = identity();
         for (int i = 0; i < scalar.length(); i++) {

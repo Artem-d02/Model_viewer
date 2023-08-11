@@ -1,7 +1,10 @@
 package engine.graphics;
 
+import engine.io.Window;
 import engine.maths.Matrix4f;
+import engine.objects.Camera;
 import engine.objects.GameObject;
+import org.jetbrains.annotations.NotNull;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL13;
 import org.lwjgl.opengl.GL15;
@@ -9,12 +12,12 @@ import org.lwjgl.opengl.GL30;
 
 public class Renderer {
     private Shader shader;
-    private float scale = 0;    //  temporary
-    public Renderer(Shader shader) {
+    private Window window;
+    public Renderer(Window window, Shader shader) {
         this.shader = shader;
+        this.window = window;
     }
-    public void renderMesh(GameObject object) {
-        scale += 0.02;
+    public void renderMesh(@NotNull GameObject object, @NotNull Camera camera) {
         GL30.glBindVertexArray(object.getMesh().getVAO());
         GL30.glEnableVertexAttribArray(0);
         GL30.glEnableVertexAttribArray(1);
@@ -25,6 +28,8 @@ public class Renderer {
 
         shader.bind();
         shader.setUniform("model", Matrix4f.transform(object.getPosition(), object.getRotation(), object.getScale()));
+        shader.setUniform("view", Matrix4f.view(camera.getPosition(), camera.getRotation()));
+        shader.setUniform("projection", window.getProjectionMatrix());
         GL11.glDrawElements(GL11.GL_TRIANGLES, object.getMesh().getIndices().length, GL11.GL_UNSIGNED_INT, 0);
         shader.unbind();
 
