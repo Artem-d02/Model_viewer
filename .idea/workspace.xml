@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93895d8f-c2f4-4ec6-8a96-e05fcd4c7399" name="Changes" comment="Refactored Matrix class, added translation and rotation methods">
-      <change afterPath="$PROJECT_DIR$/src/test/Tester.java" afterDir="false" />
+    <list default="true" id="93895d8f-c2f4-4ec6-8a96-e05fcd4c7399" name="Changes" comment="Added matrix multiplication method">
+      <change afterPath="$PROJECT_DIR$/src/engine/objects/GameObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/shaders/mainVertex.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/resources/shaders/mainVertex.glsl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/graphics/Renderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/graphics/Renderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/graphics/Shader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/graphics/Shader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/engine/maths/Matrix4f.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/maths/Matrix4f.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/engine/maths/Vector2f.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/maths/Vector2f.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/engine/maths/Vector3f.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/maths/Vector3f.java" afterDir="false" />
@@ -97,7 +100,7 @@
       <workItem from="1691672291853" duration="228000" />
       <workItem from="1691677946830" duration="119000" />
       <workItem from="1691678166225" duration="2978000" />
-      <workItem from="1691686932722" duration="7865000" />
+      <workItem from="1691686932722" duration="15126000" />
     </task>
     <task id="LOCAL-00001" summary="The first step for creating an app">
       <option name="closed" value="true" />
@@ -195,7 +198,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691681118287</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Added matrix multiplication method">
+      <option name="closed" value="true" />
+      <created>1691698783873</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1691698783873</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -214,7 +225,8 @@
     <MESSAGE value="Added texturing in shaders" />
     <MESSAGE value="Added supporting of uniform variables in shader programs + extended the Math package with Matrix class" />
     <MESSAGE value="Refactored Matrix class, added translation and rotation methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored Matrix class, added translation and rotation methods" />
+    <MESSAGE value="Added matrix multiplication method" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added matrix multiplication method" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -245,34 +257,14 @@
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/engine/graphics/Material.java</url>
-          <line>23</line>
-          <option name="timeStamp" value="18" />
+          <url>file://$PROJECT_DIR$/src/engine/graphics/Renderer.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/engine/graphics/Material.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/engine/maths/Matrix4f.java</url>
-          <line>94</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/engine/maths/Matrix4f.java</url>
-          <line>95</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/engine/maths/Matrix4f.java</url>
-          <line>96</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$PROJECT_DIR$/../../../External_libs/MyMatrix/Matrix.jar!/Mtrx/Matrix.class</url>
-          <line>89</line>
-          <option name="timeStamp" value="30" />
+          <url>file://$PROJECT_DIR$/src/engine/graphics/Shader.java</url>
+          <line>92</line>
+          <option name="timeStamp" value="40" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

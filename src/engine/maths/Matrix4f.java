@@ -57,13 +57,16 @@ public class Matrix4f extends SquareMatrix<Float> {
         Matrix4f rotationMat = new Matrix4f(
                 Arrays.asList(
                         Arrays.asList(
-                                cos + sqr.apply(Ux) * antiCos,  Ux * Uy * antiCos - Uz * sin,   Ux * Uz * antiCos + Uy * sin
+                                cos + sqr.apply(Ux) * antiCos,  Ux * Uy * antiCos - Uz * sin,   Ux * Uz * antiCos + Uy * sin,  0.0f
                         ),
                         Arrays.asList(
-                                Uy * Ux * antiCos + Uz * sin,   cos + sqr.apply(Uy) * antiCos,  Uy * Uz * antiCos - Ux * sin
+                                Uy * Ux * antiCos + Uz * sin,   cos + sqr.apply(Uy) * antiCos,  Uy * Uz * antiCos - Ux * sin,  0.0f
                         ),
                         Arrays.asList(
-                                Uz * Ux * antiCos - Uy * sin,   Uz * Uy * antiCos + Ux * sin,   cos + sqr.apply(Uz) * antiCos
+                                Uz * Ux * antiCos - Uy * sin,   Uz * Uy * antiCos + Ux * sin,   cos + sqr.apply(Uz) * antiCos, 0.0f
+                        ),
+                        Arrays.asList(
+                                0.0f,                           0.0f,                           0.0f,                          1.0f
                         )
                 )
         );
@@ -98,5 +101,16 @@ public class Matrix4f extends SquareMatrix<Float> {
             }
         }
         return result;
+    }
+    public static @NotNull Matrix4f transform(final @NotNull Vector3f position, final @NotNull Vector3f rotation, final @NotNull Vector3f scale) {
+        Matrix4f translationMatrix = Matrix4f.translate(position);
+        Matrix4f rotX = Matrix4f.rotation(rotation.getX(), new Vector3f(1, 0, 0));
+        Matrix4f rotY = Matrix4f.rotation(rotation.getY(), new Vector3f(0, 1, 0));
+        Matrix4f rotZ = Matrix4f.rotation(rotation.getZ(), new Vector3f(0, 0, 1));
+        Matrix4f scaleMatrix = Matrix4f.scale(scale);
+
+        Matrix4f rotationMatrix = Matrix4f.multiply(rotX, Matrix4f.multiply(rotY, rotZ));
+
+        return Matrix4f.multiply(translationMatrix, Matrix4f.multiply(rotationMatrix, scaleMatrix));
     }
 }

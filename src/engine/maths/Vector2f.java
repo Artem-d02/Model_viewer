@@ -1,5 +1,8 @@
 package engine.maths;
 
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
+
 public class Vector2f {
     private float x;
     private float y;
@@ -34,5 +37,12 @@ public class Vector2f {
             default:
                 throw new IndexOutOfBoundsException("Fatal error: out of bounds in Vector2f");
         }
+    }
+    public static @NotNull Vector2f add(final @NotNull Vector2f first, final @NotNull Vector2f second) {
+        return new Vector2f(first.getX() + second.getX(), first.getY() + second.getY());
+    }
+    public void add(final @NotNull Vector2f vec) {
+        this.x += vec.getX();
+        this.y += vec.getY();
     }
 }

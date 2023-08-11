@@ -89,8 +89,9 @@ public class Shader {
             }
             return fArr;
         };
-        matrix.put(FloatArr_to_floatArr_converter.convert(value.toArray())).flip();
-        GL20.glUniform4fv(getUniformLocation(name), matrix);
+        float[] floatArr = FloatArr_to_floatArr_converter.convert(value.toArray());
+        matrix.put(floatArr).flip();
+        GL20.glUniformMatrix4fv(getUniformLocation(name), true, matrix);
     }
     public void bind () {
         GL20.glUseProgram(programID);
