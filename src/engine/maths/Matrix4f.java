@@ -103,7 +103,7 @@ public class Matrix4f extends SquareMatrix<Float> {
     }
     public static @NotNull Matrix4f scale(final @NotNull Vector3f scalar) {
         Matrix4f result = identity();
-        for (int i = 0; i < scalar.length(); i++) {
+        for (int i = 0; i < scalar.size(); i++) {
             result.set(i, i, result.get(i, i) * scalar.get(i));
         }
         return result;

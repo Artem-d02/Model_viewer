@@ -2,6 +2,8 @@ package engine.maths;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.function.UnaryOperator;
+
 public class Vector3f {
     private float x = 0;
     private float y = 0;
@@ -46,9 +48,6 @@ public class Vector3f {
     public static int size() {
         return 3;
     }
-    public int length() {
-        return 3;
-    }
     public Float get(final int index) throws IndexOutOfBoundsException {
         switch (index) {
             case 0:
@@ -63,6 +62,26 @@ public class Vector3f {
     }
     public static @NotNull Vector3f add(final @NotNull Vector3f first, final @NotNull Vector3f second) {
         return new Vector3f(first.getX() + second.getX(), first.getY() + second.getY(), first.getZ() + second.getZ());
+    }
+    public static @NotNull Vector3f sub(final @NotNull Vector3f first, final @NotNull Vector3f second) {
+        return new Vector3f(first.getX() - second.getX(), first.getY() - second.getY(), first.getZ() - second.getZ());
+    }
+    public static @NotNull Vector3f coordsMultiply(final @NotNull Vector3f first, final @NotNull Vector3f second) {
+        return new Vector3f(first.getX() * second.getX(), first.getY() * second.getY(), first.getZ() * second.getZ());
+    }
+    public static @NotNull Vector3f divideCoords(final @NotNull Vector3f first, final @NotNull Vector3f second) {
+        return new Vector3f(first.getX() / second.getX(), first.getY() / second.getY(), first.getZ() / second.getZ());
+    }
+    public float length() {
+        UnaryOperator<Float> sqr = x -> x * x;
+        return (float) Math.sqrt(sqr.apply(x) + sqr.apply(y) + sqr.apply(z));
+    }
+    public static @NotNull Vector3f normalize(final @NotNull Vector3f vector) {
+        float norm = vector.length();
+        return new Vector3f(vector.x / norm, vector.y / norm, vector.z / norm);
+    }
+    public static float dot(final @NotNull Vector3f first, final @NotNull Vector3f second) {
+        return first.getX() * second.getX() + first.getY() * second.getY() + first.getZ() * second.getZ();
     }
     public void add(final @NotNull Vector3f vec) {
         this.x += vec.getX();

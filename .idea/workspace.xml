@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93895d8f-c2f4-4ec6-8a96-e05fcd4c7399" name="Changes" comment="Added transformations: updated Matrix and Vector classes. Refactoring: added GameObject class for storing information about transformations and meshes">
-      <change afterPath="$PROJECT_DIR$/src/engine/objects/Camera.java" afterDir="false" />
+    <list default="true" id="93895d8f-c2f4-4ec6-8a96-e05fcd4c7399" name="Changes" comment="Added view and projection matrices, created first prototype of the Camera class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/shaders/mainVertex.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/resources/shaders/mainVertex.glsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engine/graphics/Renderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/graphics/Renderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engine/io/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/io/Window.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/engine/maths/Matrix4f.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/maths/Matrix4f.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engine/objects/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/objects/GameObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/maths/Vector2f.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/maths/Vector2f.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/maths/Vector3f.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/maths/Vector3f.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +96,8 @@
       <workItem from="1691677946830" duration="119000" />
       <workItem from="1691678166225" duration="2978000" />
       <workItem from="1691686932722" duration="15195000" />
-      <workItem from="1691763776888" duration="3199000" />
+      <workItem from="1691763776888" duration="3214000" />
+      <workItem from="1691872604147" duration="1133000" />
     </task>
     <task id="LOCAL-00001" summary="The first step for creating an app">
       <option name="closed" value="true" />
@@ -214,7 +211,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691712604546</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Added view and projection matrices, created first prototype of the Camera class">
+      <option name="closed" value="true" />
+      <created>1691767008869</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1691767008870</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,7 +240,8 @@
     <MESSAGE value="Refactored Matrix class, added translation and rotation methods" />
     <MESSAGE value="Added matrix multiplication method" />
     <MESSAGE value="Added transformations: updated Matrix and Vector classes. Refactoring: added GameObject class for storing information about transformations and meshes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added transformations: updated Matrix and Vector classes. Refactoring: added GameObject class for storing information about transformations and meshes" />
+    <MESSAGE value="Added view and projection matrices, created first prototype of the Camera class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added view and projection matrices, created first prototype of the Camera class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
