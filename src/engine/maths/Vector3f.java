@@ -2,6 +2,7 @@ package engine.maths;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Objects;
 import java.util.function.UnaryOperator;
 
 public class Vector3f {
@@ -87,5 +88,18 @@ public class Vector3f {
         this.x += vec.getX();
         this.y += vec.getY();
         this.z += vec.getZ();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Vector3f vector3f = (Vector3f) o;
+        return Float.compare(vector3f.x, x) == 0 && Float.compare(vector3f.y, y) == 0 && Float.compare(vector3f.z, z) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y, z);
     }
 }

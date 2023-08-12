@@ -1,6 +1,7 @@
 package Main;
 
 import engine.graphics.*;
+import engine.io.Input;
 import engine.io.Window;
 import engine.maths.Vector2f;
 import engine.maths.Vector3f;
@@ -31,7 +32,7 @@ public class Main implements Runnable {
     }, new Material("/textures/texture3.png")
     );
     private GameObject gameObject = new GameObject(mesh, new Vector3f(0, 0, 0), new Vector3f(0, 0, 0), new Vector3f(1, 1, 1));
-    private Camera camera = new Camera(new Vector3f(0, 0, 1), new Vector3f(0, 0, 0));
+    private Camera camera;
     public void start() {
         game = new Thread(this,"game");
         game.start();
@@ -46,6 +47,7 @@ public class Main implements Runnable {
         window.create();
         mesh.create();
         shader.create();
+        camera = new Camera(new Vector3f(0, 0, 1), new Vector3f(0, 0, 0), window.getInput());
     }
     public void run() {
         try {
@@ -64,6 +66,7 @@ public class Main implements Runnable {
     }
     private void update() {
         window.update();
+        camera.update();
         gameObject.update();
         if (window.getInput().isMouseButtonDown(GLFW_MOUSE_BUTTON_LEFT))
             System.out.println("This mouse position:\n" + "X: " + window.getInput().getMouseX() + ", Y: " + window.getInput().getMouseY());
