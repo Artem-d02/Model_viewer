@@ -57,6 +57,10 @@ public class Main implements Runnable {
                 render();
                 if (window.getInput().isKeyDown(GLFW_KEY_F11))
                     window.setFullScreen(!window.isFullScreen());
+                if (window.getInput().isMouseButtonDown(GLFW_MOUSE_BUTTON_LEFT)) {
+                    window.mouseLock(true);
+                }
+
             }
             destroy();
         } catch (Throwable e) {

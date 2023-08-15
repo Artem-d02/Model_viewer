@@ -6,6 +6,7 @@ import org.lwjgl.*;
 import org.lwjgl.glfw.*;
 import org.lwjgl.opengl.*;
 import org.lwjgl.system.*;
+import org.lwjglx.Sys;
 
 import java.nio.*;
 
@@ -181,6 +182,10 @@ public class Window {
         } else {
             glfwSetWindowMonitor(window, 0, windowPosX[0], windowPosY[0], width, height, 0);
         }
+    }
+
+    public void mouseLock(boolean lock) {
+        GLFW.glfwSetInputMode(window, GLFW_CURSOR, lock ? GLFW_CURSOR_DISABLED : GLFW_CURSOR_NORMAL);
     }
 
     public Matrix4f getProjectionMatrix() {

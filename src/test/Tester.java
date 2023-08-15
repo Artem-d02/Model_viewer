@@ -15,10 +15,10 @@ public class Tester {
         printTitle("Matrix tests");
         Matrix4f first = new Matrix4f(
                 Arrays.asList(
-                        Arrays.asList(4f, 0f, 0f, 0f),
-                        Arrays.asList(0f, 3f, 0f, 0f),
-                        Arrays.asList(0f, 0f, 2f, 0f),
-                        Arrays.asList(0f, 0f, 0f, 1f)
+                        Arrays.asList(1f, 2f, 3f, 4f),
+                        Arrays.asList(5f, 6f, 7f, 8f),
+                        Arrays.asList(9f, 10f, 11f, 12f),
+                        Arrays.asList(13f, 14f, 15f, 16f)
                 )
         );
         Matrix4f second = new Matrix4f(
