@@ -2,7 +2,12 @@ package engine.maths;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+import java.util.function.BinaryOperator;
+import java.util.function.Function;
 import java.util.function.UnaryOperator;
 
 public class Vector3f {
@@ -89,6 +94,32 @@ public class Vector3f {
         this.y += vec.getY();
         this.z += vec.getZ();
     }
+    public static @NotNull Vector3f multiply(final @NotNull Matrix4f mat, final @NotNull Vector3f vec) {
+        BinaryOperator<List<Float>> scalarMultiply = (firstVec, secondVec) -> {
+            if (firstVec.size() != secondVec.size())
+                throw new IllegalArgumentException("Error: couldn't multiply vectors with different sizes");
+            ArrayList<Float> res = new ArrayList<>(firstVec);
+            for (int i = 0; i < firstVec.size(); i++)
+                res.set(i, res.get(i) * secondVec.get(i));
+            return res;
+        };
+        Function<List<Float>, Float> resultElem = v -> {
+            Float sum = 0.0f;
+            for (Float elem : v)
+                sum += elem;
+            return sum;
+        };
+        ArrayList<Float> vec4 = new ArrayList<>(mat.getSize());
+        vec4.add(vec.x);
+        vec4.add(vec.y);
+        vec4.add(vec.z);
+        vec4.add(1.0f);
+        ArrayList<Float> result = new ArrayList<>(mat.getSize());
+        for (int i = 0; i < mat.getSize(); i++) {
+            result.add(resultElem.apply(scalarMultiply.apply(mat.getRaw(i), vec4)));
+        }
+        return new Vector3f(result.get(0), result.get(1), result.get(2));
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -101,5 +132,8 @@ public class Vector3f {
     @Override
     public int hashCode() {
         return Objects.hash(x, y, z);
+    }
+    public void print(PrintStream out) {
+        out.println(x + " " + y + " " + z);
     }
 }

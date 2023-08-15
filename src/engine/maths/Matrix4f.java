@@ -101,6 +101,33 @@ public class Matrix4f extends SquareMatrix<Float> {
 
         return Matrix4f.multiply(translationMatrix, rotationMatrix);
     }
+    public static @NotNull Matrix4f lookAt(final @NotNull Vector3f right, final @NotNull Vector3f up, final @NotNull Vector3f direction, final @NotNull Vector3f position) {
+        Matrix4f translationMatrix = Matrix4f.translate(new Vector3f(-position.getX(), -position.getY(), -position.getZ()));
+        Matrix4f first = new Matrix4f(
+                Arrays.asList(
+                        Arrays.asList(
+                                right.getX(),       right.getY(),       right.getZ(),       0.0f
+                        ),
+                        Arrays.asList(
+                                up.getX(),          up.getY(),          up.getZ(),          0.0f
+                        ),
+                        Arrays.asList(
+                                direction.getX(),   direction.getY(),   direction.getZ(),   0.0f
+                        ),
+                        Arrays.asList(
+                                0.0f,               0.0f,               0.0f,               1.0f
+                        )
+                )
+        );
+        return Matrix4f.multiply(first, translationMatrix);
+    }
+    public static @NotNull Matrix4f viewThroughLookAt(final @NotNull Vector3f position, final @NotNull Vector3f rotation) {
+        Matrix4f rotationMat = Matrix4f.multiply(Matrix4f.rotation(rotation.getX(), new Vector3f(1, 0, 0)), Matrix4f.rotation(rotation.getY(), new Vector3f(0, 1, 0)));
+        Vector3f right = Vector3f.multiply(rotationMat, new Vector3f(-1, 0, 0));
+        Vector3f up = Vector3f.multiply(rotationMat, new Vector3f(0, 1, 0));
+        Vector3f direction = Vector3f.multiply(rotationMat, new Vector3f(0, 0, -1));
+        return lookAt(right, up, direction, position);
+    }
     public static @NotNull Matrix4f scale(final @NotNull Vector3f scalar) {
         Matrix4f result = identity();
         for (int i = 0; i < scalar.size(); i++) {

@@ -9,7 +9,7 @@ public class Camera {
     private Vector3f position;
     private Vector3f rotation;
     private float moveSpeed = 0.05f;
-    private float mouseSensitivity = 0.5f;
+    private float mouseSensitivity = 0.15f;
     private Input input;
     private double oldMouseX;
     private double oldMouseY;
@@ -28,16 +28,16 @@ public class Camera {
         newMouseY = input.getMouseY();
 
         float x = (float) Math.sin(Math.toRadians(rotation.getY())) * moveSpeed;
-        float y = (float) Math.cos(Math.toRadians(rotation.getY())) * moveSpeed;
+        float z = (float) Math.cos(Math.toRadians(rotation.getY())) * moveSpeed;
 
         if (input.isKeyDown(GLFW.GLFW_KEY_A))
-            position.add(new Vector3f(-moveSpeed, 0, 0));
+            position.add(new Vector3f(z, 0, -x));
         if (input.isKeyDown(GLFW.GLFW_KEY_D))
-            position.add(new Vector3f(moveSpeed, 0, 0));
+            position.add(new Vector3f(-z, 0, x));
         if (input.isKeyDown(GLFW.GLFW_KEY_W))
-            position.add(new Vector3f(0, 0, -moveSpeed));
+            position.add(new Vector3f(x, 0, z));
         if (input.isKeyDown(GLFW.GLFW_KEY_S))
-            position.add(new Vector3f(0, 0, moveSpeed));
+            position.add(new Vector3f(-x, 0, -z));
         if (input.isKeyDown(GLFW.GLFW_KEY_SPACE))
             position.add(new Vector3f(0, moveSpeed, 0));
         if (input.isKeyDown(GLFW.GLFW_KEY_LEFT_SHIFT))
@@ -51,7 +51,7 @@ public class Camera {
         oldMouseX = newMouseX;
         oldMouseY = newMouseY;
 
-        System.out.println(position.getX() + " " + position.getY() + " " + position.getZ());
+        //System.out.println(position.getX() + " " + position.getY() + " " + position.getZ());
     }
 
     public Vector3f getPosition() {

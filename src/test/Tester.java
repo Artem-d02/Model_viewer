@@ -1,6 +1,7 @@
 package test;
 
 import engine.maths.Matrix4f;
+import engine.maths.Vector3f;
 import org.lwjglx.Sys;
 
 import java.lang.reflect.Method;
@@ -32,15 +33,24 @@ public class Tester {
         Matrix4f.multiply(first, second).print(System.out);
         return true;
     }
+    public static boolean vector3fTest() {
+        printTitle("Vector3f tests");
+        Matrix4f mat = Matrix4f.translate(new Vector3f(2.0f, 2.0f, 2.0f));
+        Vector3f vec = new Vector3f(1.0f, 2.0f, 3.0f);
+        Vector3f.multiply(mat, vec).print(System.out);
+        return true;
+    }
     public static void test() {
         ArrayList<Testable> tests = new ArrayList<>();
 
         //  add all tests
         tests.add(Tester::matrixTest);
+        tests.add(Tester::vector3fTest);
 
         for (Testable testElem : tests) {
             boolean testResult = testElem.test();
             System.out.print("Test result:" + testResult);
+            System.out.println();
         }
         System.out.println();
     }
