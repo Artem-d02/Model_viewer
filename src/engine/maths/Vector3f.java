@@ -26,6 +26,11 @@ public class Vector3f {
         this.y = y;
         this.z = z;
     }
+    public void set(final @NotNull Vector3f another) {
+        x = another.x;
+        y = another.y;
+        z = another.z;
+    }
 
     public float getX() {
         return x;

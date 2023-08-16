@@ -3,6 +3,7 @@ package engine.maths;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
+import java.io.PrintStream;
 import java.util.Objects;
 import java.util.function.UnaryOperator;
 
@@ -12,6 +13,14 @@ public class Vector2f {
     public Vector2f(float x, float y) {
         this.x = x;
         this.y = y;
+    }
+    public void set(float x, float y) {
+        this.x = x;
+        this.y = y;
+    }
+    public void set(final @NotNull Vector2f another) {
+        x = another.x;
+        y = another.y;
     }
     public float getX() {
         return x;
@@ -77,5 +86,8 @@ public class Vector2f {
     @Override
     public int hashCode() {
         return Objects.hash(x, y);
+    }
+    public void print(PrintStream out) {
+        out.println(x + " " + y);
     }
 }

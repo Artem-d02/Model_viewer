@@ -122,7 +122,8 @@ public class Matrix4f extends SquareMatrix<Float> {
         return Matrix4f.multiply(first, translationMatrix);
     }
     public static @NotNull Matrix4f viewThroughLookAt(final @NotNull Vector3f position, final @NotNull Vector3f rotation) {
-        Matrix4f rotationMat = Matrix4f.multiply(Matrix4f.rotation(rotation.getX(), new Vector3f(1, 0, 0)), Matrix4f.rotation(rotation.getY(), new Vector3f(0, 1, 0)));
+        Matrix4f rotationMat = Matrix4f.multiply(Matrix4f.rotation(rotation.getY(), new Vector3f(0, 1, 0)), Matrix4f.rotation(rotation.getX(), new Vector3f(1, 0, 0)));
+        rotationMat = Matrix4f.multiply(Matrix4f.rotation(rotation.getZ(), new Vector3f(0, 0, 1)), rotationMat);
         Vector3f right = Vector3f.multiply(rotationMat, new Vector3f(-1, 0, 0));
         Vector3f up = Vector3f.multiply(rotationMat, new Vector3f(0, 1, 0));
         Vector3f direction = Vector3f.multiply(rotationMat, new Vector3f(0, 0, -1));
