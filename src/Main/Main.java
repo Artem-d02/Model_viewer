@@ -83,6 +83,7 @@ public class Main implements Runnable {
             23, 21, 22
     }, new Material("/textures/texture3.png"));
     private GameObject gameObject = new GameObject(mesh, new Vector3f(0, 0, 0), new Vector3f(0, 0, 0), new Vector3f(1, 1, 1));
+    private GameObject[] gameObjects = new GameObject[500];
     private Camera camera;
     public void start() {
         game = new Thread(this,"game");
@@ -99,6 +100,10 @@ public class Main implements Runnable {
         mesh.create();
         shader.create();
         camera = new Camera(new Vector3f(0, 0, 1), new Vector3f(0, 0, 0), window.getInput());
+        gameObjects[0] = gameObject;
+        for (int i = 1; i < gameObjects.length; i++) {
+            gameObjects[i] = new GameObject(mesh, new Vector3f((float) Math.random() * 50 - 25, (float) Math.random() * 50 - 25, (float) Math.random() * 50 - 25), new Vector3f(0, 0 ,0), new Vector3f(1, 1, 1));
+        }
     }
     public void run() {
         try {
@@ -121,14 +126,16 @@ public class Main implements Runnable {
     }
     private void update() {
         window.update();
-        camera.update();
+        camera.update(gameObject);
         gameObject.update();
-        if (window.getInput().isMouseButtonDown(GLFW_MOUSE_BUTTON_LEFT))
-            System.out.println("This mouse position:\n" + "X: " + window.getInput().getMouseX() + ", Y: " + window.getInput().getMouseY());
+        //if (window.getInput().isMouseButtonDown(GLFW_MOUSE_BUTTON_LEFT))
+        //    System.out.println("This mouse position:\n" + "X: " + window.getInput().getMouseX() + ", Y: " + window.getInput().getMouseY());
     }
 
     private void render() {
-        renderer.renderMesh(gameObject, camera);
+        for (GameObject object : gameObjects) {
+            renderer.renderMesh(object, camera);
+        }
         window.swapBuffers();
     }
 
