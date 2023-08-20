@@ -53,5 +53,26 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../../../External_libs/LWJGL/lwjgl-assimp/lwjgl-assimp-natives-windows.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../../External_libs/LWJGL/lwjgl-assimp/lwjgl-assimp.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../../External_libs/LWJGL/lwjgl-assimp/lwjgl-glfw-natives-windows.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../../External_libs/LWJGL/lwjgl-assimp/lwjgl-glfw.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../../External_libs/LWJGL/lwjgl-assimp/lwjgl-natives-windows.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../../External_libs/LWJGL/lwjgl-assimp/lwjgl-opengl-natives-windows.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../../External_libs/LWJGL/lwjgl-assimp/lwjgl-opengl.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../../External_libs/LWJGL/lwjgl-assimp/lwjgl.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$MODULE_DIR$/../../../External_libs/LWJGL/lwjgl-assimp/lwjgl-assimp-sources.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../../External_libs/LWJGL/lwjgl-assimp/lwjgl-glfw-sources.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../../External_libs/LWJGL/lwjgl-assimp/lwjgl-opengl-sources.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../../External_libs/LWJGL/lwjgl-assimp/lwjgl-sources.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>
