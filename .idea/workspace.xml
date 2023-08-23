@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93895d8f-c2f4-4ec6-8a96-e05fcd4c7399" name="Changes" comment="Added third-person camera mode for model viewing and array of meshes for rendering">
-      <change afterPath="$PROJECT_DIR$/src/engine/io/ModelLoader.java" afterDir="false" />
+    <list default="true" id="93895d8f-c2f4-4ec6-8a96-e05fcd4c7399" name="Changes" comment="Added model loading using Assimp library">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model_viewer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Model_viewer.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engine/graphics/Vertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/graphics/Vertex.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +50,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "openjdk-20",
-    "last_opened_file_path": "D:/Java/External_libs/LWJGL/lwjgl-assimp/lwjgl.jar",
+    "last_opened_file_path": "D:/Java/Projects/Model_viewer/Model_viewer",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -116,7 +112,9 @@
       <workItem from="1692124532363" duration="12207000" />
       <workItem from="1692203545003" duration="6883000" />
       <workItem from="1692273556100" duration="16000" />
-      <workItem from="1692561792186" duration="2490000" />
+      <workItem from="1692561792186" duration="3501000" />
+      <workItem from="1692730825899" duration="18000" />
+      <workItem from="1692823668867" duration="232000" />
     </task>
     <task id="LOCAL-00001" summary="The first step for creating an app">
       <option name="closed" value="true" />
@@ -286,7 +284,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692210231230</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Added model loading using Assimp library">
+      <option name="closed" value="true" />
+      <created>1692564539136</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1692564539136</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -314,37 +320,7 @@
     <MESSAGE value="Fixed camera rotation: added lookAt method" />
     <MESSAGE value="Fixed camera: changed the order of matrix multiplication + added setters for Vector classes + flat mesh was exchanged with cube" />
     <MESSAGE value="Added third-person camera mode for model viewing and array of meshes for rendering" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added third-person camera mode for model viewing and array of meshes for rendering" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/engine/utils/FileUtils.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/engine/utils/FileUtils.java</url>
-          <line>16</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/engine/utils/FileUtils.java</url>
-          <line>27</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/engine/utils/FileUtils.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/engine/utils/FileUtils.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Added model loading using Assimp library" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added model loading using Assimp library" />
   </component>
 </project>
